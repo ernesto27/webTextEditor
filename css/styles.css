@@ -1,0 +1,44 @@
+body{
+	background: #ddd;
+}
+
+#title{
+	margin-left: 40%;
+	padding: 8px;
+}
+#wrap{
+	background: #ddd;
+	width:100%;
+	margin-top: -20;
+	height: 100%;
+	padding: 0;
+}
+
+
+#wraps-editors{
+	margin-left: 15px;
+	width: 100%;
+
+}
+
+	#wraps-editors div{
+		float: left;
+		margin-right: 12px;
+	
+	}
+
+	#wraps-editors  textarea{
+		height: 350px;
+		width: 400px;
+		overflow: scroll;
+		
+	}
+
+#code-result{
+	background: white;
+	height: 100%;
+	padding: 10px;
+	width: 100%;
+	margin-top: 10px;
+
+}
