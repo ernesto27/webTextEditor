@@ -15,9 +15,19 @@ body{
 }
 
 
+#options{
+	margin-left: 15px;
+}
+
+#js-libs-wrap, #css-libs-wrap{
+	float: left;
+	margin-right: 40px;
+}
+
 #wraps-editors{
 	margin-left: 15px;
 	width: 100%;
+	clear: both;
 
 }
 
@@ -29,8 +39,11 @@ body{
 
 	#wraps-editors  textarea{
 		height: 350px;
-		width: 400px;
+		width: 350px;
 		overflow: scroll;
+		background: black;
+		color:white;
+		font-family: Arial;
 		
 	}
 

@@ -1,0 +1,94 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="https://google-code-prettify.googlecode.com/svn/trunk/styles/desert.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>
+	<style type="text/css">
+	pre{
+		width: 500px;
+		height: 600px;
+		padding: 8px;
+		overflow: scroll;
+	}
+	</style>
+</head>
+<body>
+
+<textarea style="width:400px;height:200px"></textarea>
+
+
+<pre class="prettyprint" id="code">
+
+</pre>
+
+
+
+
+
+<script type="text/javascript">
+
+	function getCaretPosition(editableDiv) {
+	    var caretPos = 0, containerEl = null, sel, range;
+	    if (window.getSelection) {
+	        sel = window.getSelection();
+	        if (sel.rangeCount) {
+	            range = sel.getRangeAt(0);
+	            if (range.commonAncestorContainer.parentNode == editableDiv) {
+	                caretPos = range.endOffset;
+	            }
+	        }
+	    } else if (document.selection && document.selection.createRange) {
+	        range = document.selection.createRange();
+	        if (range.parentElement() == editableDiv) {
+	            var tempEl = document.createElement("span");
+	            editableDiv.insertBefore(tempEl, editableDiv.firstChild);
+	            var tempRange = range.duplicate();
+	            tempRange.moveToElementText(tempEl);
+	            tempRange.setEndPoint("EndToEnd", range);
+	            caretPos = tempRange.text.length;
+	        }
+	    }
+	    return caretPos;
+	}
+
+	var pre = $("#code")
+
+	$("pre").on("click",function(){
+		$(this).attr("contenteditable","true")
+		var cursorPosition = $("pre").prop("selectionStart");
+		//console.log(getCaretPosition(this))
+		console.log(cursorPosition)
+		//$("textarea").focus()
+	})
+
+	$("textarea").on("keyup paste focus", function(e){
+			var cursorPosition = $(this).prop("selectionStart");
+			//console.log(cursorPosition)
+			//console.log($(this).val().length)
+			text = $(this).val()
+			/*t = text.slice(0, cursorPosition) + "<span class='cursor'>|</span>" + text.slice(cursorPosition)
+			pre.html(t)*/
+
+			var a = pre.text(text.slice(0, cursorPosition))
+				.append("<span class='cursor'>|</span>")
+
+			a.text(a.text() + text.slice(cursorPosition))
+
+			//console.log(a)
+			//pre.append("<span class='cursor'>|</span>")
+			pre.removeClass("prettyprinted");
+			prettyPrint()
+
+	})
+
+	setInterval(function(){
+		$(".cursor").toggle()
+	}, 800)
+
+
+</script>
+
+
+</body>
+</html>

@@ -9,7 +9,29 @@
 	<div id="wrap">
 
 		<h1 id="title">Web editor</h1>
-	
+
+		<div id="options">
+			<div id="js-libs-wrap">
+				<h4>Javascript libraries-frameworks</h4>
+				<select class="form-control"  id="js-libraries">
+					<option value="native">Native javascript</option>
+				 	<option value="jquery">Jquery</option>
+				  	<option value="angular">Angular js</option>
+				  	<option value="backbone">Backbone js</option>
+				  	<option value="ember">Ember js</option>
+			
+				</select>
+			</div>
+
+			<div id="css-libs-wrap">
+				<h4>Css libraries</h4>
+				<select class="form-control"  id="css-libraries">
+					<option value="nolib">No libraries</option>
+					<option value="bootstrap">Bootstrap</option>
+					<option value="resize">Resize</option>
+				</select>
+			</div>
+		</div>
 
 		<div id="wraps-editors">
 			<div id="html-edit">
@@ -23,7 +45,9 @@
 			</div>
 
 			<div id="js-edit">
-				<h3>Javascript</h3>
+
+				<h3>Javascript <button class="btn btn-primary btn-sm" id="run-js">Run code</button></h3>
+
 				<textarea id="code-js"></textarea>
 			</div>
 		</div>
@@ -35,6 +59,7 @@
 
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<!--<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sunburst"></script>-->
 
 	<script type="text/javascript" src="js/main.js"></script>
 
